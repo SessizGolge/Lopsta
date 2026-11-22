@@ -58,7 +58,7 @@
 <section class="video" id="video"><div class="wrap">
   <h2>Trailer</h2>
   <div class="frame">
-    <video id="trailer-video" controls playsinline preload="metadata" poster="assets/gece.png">
+    <video id="trailer-video" playsinline preload="metadata" poster="assets/gece.png">
       <source src="assets/trailer.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -124,10 +124,12 @@
   });
 
   trailer.addEventListener('play', () => {
+    trailer.controls = true;
     playButton.classList.add('is-hidden');
   });
 
   trailer.addEventListener('ended', () => {
+    trailer.controls = false;
     playButton.classList.remove('is-hidden');
   });
 </script>
