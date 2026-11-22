@@ -18,7 +18,7 @@
   <ul>
     <li><a href="#about">Game</a></li>
     <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#video">Video</a></li>
+    <li><a href="#video">Trailer</a></li>
     <li><a href="#download">Download</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -30,7 +30,7 @@
     <p>A game about the soft, round and slightly clumsy Lopcuks.</p>
     <div class="btns">
       <a class="btn" href="#download">Download the game</a>
-      <a class="btn alt" href="#video">Watch gameplay</a>
+      <a class="btn alt" href="#video">Watch trailer</a>
     </div>
   </div>
 </header>
@@ -56,12 +56,15 @@
 </div></section>
 
 <section class="video" id="video"><div class="wrap">
-  <h2>Gameplay video</h2>
+  <h2>Trailer</h2>
   <div class="frame">
-    <video controls playsinline preload="metadata" poster="assets/gece.png">
+    <video id="trailer-video" controls playsinline preload="metadata" poster="assets/gece.png">
       <source src="assets/trailer.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
+    <button class="video-play" type="button" aria-label="Play trailer">
+      <span aria-hidden="true">▶</span>
+    </button>
   </div>
 </div></section>
 
@@ -112,5 +115,21 @@
 
 <footer>© 2026 SxlentS · Lopsta and the Lopcuks</footer>
 
+<script>
+  const trailer = document.getElementById('trailer-video');
+  const playButton = document.querySelector('.video-play');
+
+  playButton.addEventListener('click', () => {
+    trailer.play();
+  });
+
+  trailer.addEventListener('play', () => {
+    playButton.classList.add('is-hidden');
+  });
+
+  trailer.addEventListener('ended', () => {
+    playButton.classList.remove('is-hidden');
+  });
+</script>
 </body>
 </html>
